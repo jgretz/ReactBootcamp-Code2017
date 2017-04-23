@@ -36,13 +36,13 @@ We are going to be building our own little IMDB.
 ## Requirements
 There will be two panels to the app.
 
-#### Left Panel
-* The left panel will contain the search and search results. You need to at minimum search for a title. Extra credit for allowing the user to specify the type.
+#### Search Panel
+* The "search" panel will contain the search and search results. You need to at minimum search for a title. Extra credit for allowing the user to specify the type.
 * The results should be display as a ul.
-* When I click on a title, the right panel should change to the selected title.
+* When I click on a title, the detail panel should change to the selected title.
 
-#### Right Panel
-* The right panel will contain the detail about the selected movie
+#### Detail Panel
+* The detail panel will contain the detail about the selected movie
 * You should display at minimum:
     * Rating
     * Release Date
@@ -61,8 +61,8 @@ We are going to keep working on our IMDB app.
 * Add some style to the panels, at a minimum:
     * Your colors should be defined in their own file
     * The search panel and detail panels should have their own files respectively
-    * The left panel should be a different background color than the right
+    * The search panel should be a different background color than the right
     * The selected title should highlight
-    * Add some color to the right panel
+    * Add some color to the detail panel
 * Convert all state and actions to Redux
     * You may use either middleware - both are already hooked in for you
