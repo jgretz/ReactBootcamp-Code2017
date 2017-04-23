@@ -64,5 +64,6 @@ We are going to keep working on our IMDB app.
     * The search panel should be a different background color than the right
     * The selected title should highlight
     * Add some color to the detail panel
+    * Make sure the menu has some style too
 * Convert all state and actions to Redux
     * You may use either middleware - both are already hooked in for you

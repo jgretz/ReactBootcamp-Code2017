@@ -1,41 +1,26 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import autobind from 'class-autobind';
+import {connect} from 'react-redux';
 
-const OMDB_API = 'http://www.omdbapi.com/';
+import {searchForMovies, selectMovie, updateSearchText} from '../actions';
 
-export default class Search extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     autobind(this);
-
-    this.state = {
-      searchText: '',
-      searchResults: [],
-    };
   }
 
   // actions
-  handleSearchTextChange(e) {
-    this.setState({searchText: e.target.value});
-  }
-
   handleSearch() {
-    axios.get(`${OMDB_API}?s=${this.state.searchText}&r=json`)
-    .then(response => {
-      this.setState({
-        searchResults: response.data.Search,
-      });
-    });
-
-    this.setState({searchText: ''});
+    this.props.searchForMovies(this.props.searchText);
+    this.props.updateSearchText('');
   }
 
   // render
   renderList() {
-    return this.state.searchResults.map(movie => {
+    return this.props.searchResults.map(movie => {
       const handleSelect = () => {
-        this.props.movieSelected(movie.imdbID);
+        this.props.selectMovie(movie.imdbID);
       };
 
       return (
@@ -45,11 +30,13 @@ export default class Search extends Component {
   }
 
   render() {
+    const {updateSearchText: handleSearchText} = this.props;
+
     return (
-      <div>
+      <div className="col-xs-2 search">
         <div>
           <h1>Find a Movie</h1>
-          <input value={this.state.searchText} onChange={this.handleSearchTextChange} />
+          <input value={this.props.searchText} onChange={handleSearchText} />
           &nbsp;
           <input type="button" value="Search" onClick={this.handleSearch} />
         </div>
@@ -62,3 +49,11 @@ export default class Search extends Component {
     );
   }
 }
+
+const mapStateToProps = state =>
+({
+  searchText: state.searchText,
+  searchResults: state.searchResults,
+});
+
+export default connect(mapStateToProps, {searchForMovies, selectMovie, updateSearchText})(Search);

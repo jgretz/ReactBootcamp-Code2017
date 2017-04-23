@@ -1,0 +1,20 @@
+.search {
+  background-color: $russian-green;
+  padding: 0 0 10px 10px;
+
+  ul {
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+  }
+
+  li {
+    cursor: pointer;
+
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 0;
+  }
+}

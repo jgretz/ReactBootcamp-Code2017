@@ -1,0 +1,16 @@
+.menu {
+  background-color: $russian-green;
+  border-bottom: solid 4px $laurel-green;
+
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+
+  a {
+    color: $white;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 20px;
+  }
+}
