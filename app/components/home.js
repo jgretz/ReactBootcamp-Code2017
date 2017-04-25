@@ -22,7 +22,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <Search movieSelected={this.movieSelected} />
+        <Search />
         <List />
         <Detail movie={this.state.selectedMovie} />
       </div>
