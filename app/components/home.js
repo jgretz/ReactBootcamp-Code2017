@@ -3,6 +3,7 @@ import autobind from 'class-autobind';
 
 import Search from './search';
 import Detail from './detail';
+import List from './list';
 
 export default class Home extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export default class Home extends Component {
     return (
       <div>
         <Search movieSelected={this.movieSelected} />
+        <List />
         <Detail movie={this.state.selectedMovie} />
       </div>
     );
