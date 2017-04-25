@@ -21,9 +21,7 @@ export default class Detail extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.props.detail || this.props.detail.imdbID !== nextProps.movie) {
-      this.loadMovie(this.props.movie);
-    }
+    this.loadMovie(nextProps.movie);
   }
 
   loadMovie(imdbID) {

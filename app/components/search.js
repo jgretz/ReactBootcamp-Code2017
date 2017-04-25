@@ -24,7 +24,7 @@ export default class Search extends Component {
     axios.get(`${OMDB_API}?s=${this.state.searchText}&r=json`)
     .then(response => {
       this.setState({
-        searchResults: response.data.Search,
+        searchResults: (response.data.Search || []),
       });
     });
 
